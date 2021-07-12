@@ -42,19 +42,22 @@ const feedObj = {
             itemContainer.classList.add('item');
 
             // 글쓴이 정보 영역
+            let imgTag = ``;
+            if(item.mainProfile != null){
+                imgTag = `<img src="/pic/profile/${item.iuser}/${item.mainProfile}" class="pointer w30" 
+                onclick="moveToProfile(${item.iuser});" onerror="this.style.display='none';">`;
+            }
             const regDtInfo = getDateTimeInfo(item.regdt);
             const topDiv = document.createElement('div');
             topDiv.classList.add('top')
             topDiv.innerHTML = `
-            <div class="itemProfileCont">
-                <img src="/pic/profile/${item.iuser}/${item.mainProfile}" class="pointer" 
-                onclick="moveToProfile(${item.iuser});" onerror="this.style.display='none';">
-            </div>
+            <div class="itemProfileCont">${imgTag}</div>
             <div>
                 <div><span class="pointer" onclick="moveToProfile(${item.iuser});">${item.writer}</span> - ${regDtInfo}</div>
                 <div>${item.location == null ? '' : item.location}</div>
             </div>
             `;
+
             //이미지영역
             const imgDiv = document.createElement('div');
             imgDiv.classList.add('itemImg');
@@ -276,7 +279,7 @@ const feedObj = {
             this.hideLoading();
         });
     },
-    makeCmtItem: function({iuser, writerProfile, writer, cmt, regdt}) {
+    makeCmtItem: function({iuser, writerProfile, writer, cmt}) {
         const cmtItemContainerDiv = document.createElement('div');
         cmtItemContainerDiv.className = 'cmtItemCont';
 
@@ -296,7 +299,7 @@ const feedObj = {
         //댓글
         const cmtItemCtntDiv = document.createElement('div');
         cmtItemCtntDiv.className = 'cmtItemCtnt';
-        cmtItemCtntDiv.innerHTML = `<div class="pointer" onclick="moveToProfile(${iuser});">${writer}</div><div>${cmt}${regdt}</div>`;
+        cmtItemCtntDiv.innerHTML = `<div class="pointer" onclick="moveToProfile(${iuser});">${writer}</div><div>${cmt}</div>`;
         cmtItemContainerDiv.append(cmtItemCtntDiv);
 
         return cmtItemContainerDiv;

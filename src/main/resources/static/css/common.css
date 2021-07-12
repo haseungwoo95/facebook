@@ -78,7 +78,6 @@ input { outline-style: none; }
 section #feedContainer { width: 620px; }
 #feedContainer .item { padding: 10px; border-radius: 3px; border: 1px solid #bdc3c7; margin-bottom: 50px; }
 #feedContainer .item .top { display: flex; }
-#feedContainer .itemProfileCont img { width: 32px; border-radius: 50%; }
 
 #feedContainer .item .itemImg { margin-top: 20px; }
 #feedContainer .item .itemImg img { width: 598px; }
@@ -90,3 +89,5 @@ section #feedContainer { width: 620px; }
 #feedContainer .item .cmtItemCont { display: flex; margin-bottom: 10px; }
 #feedContainer .item .cmtItemCont .cmtItemProfile { width: 40px; }
 #feedContainer .item .cmtItemCont .cmtItemCtnt { background-color: #ecf0f1; border-radius: 5px; flex-grow: 1; margin-left: 5px; padding: 5px; }
+
+.profile { object-fit: cover; border-radius: 50%;}

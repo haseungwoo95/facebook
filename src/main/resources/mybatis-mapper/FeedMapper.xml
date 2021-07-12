@@ -135,5 +135,4 @@
         ( ${ifeed}, ${iuser}, #{cmt} )
     </insert>
 
-
 </mapper>
